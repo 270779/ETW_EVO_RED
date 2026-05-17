@@ -1,0 +1,4 @@
+17/05/2026
+started GitHub repository called https://github.com/270779/GITSandbox
+added all files and folders from EVO Red 3.10N
+added changelog
