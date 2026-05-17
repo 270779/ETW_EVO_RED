@@ -1,2 +1,0 @@
-{_x allowDamage false} forEach (nearestObjects [getMarkerPos "respawn_east",["Static","Thing","building","house"],400]);
-{_x allowDamage false} forEach (nearestObjects [getMarkerPos "Base",["Static","Thing","building","house"],800]);

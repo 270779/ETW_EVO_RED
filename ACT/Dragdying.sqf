@@ -1,9 +1,0 @@
-//Drag Wounded
-while {!(FFA_GAMEENDED)} do
-{
-	sleep 0.5;
-	WaitUntil {sleep 0.2;(nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man'] != player) && ((nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man'] getVariable 'FFA_LIFESTATE') > FFA_LIFESTATE_INJURED) && ((animationState nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man']) != 'AinvPknlMstpSlayWrflDnon_medic') && (alive nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man']) && (local player) && (alive player) && ((vehicle player)==player) && !(FFA_DRAGREQUIRED) && ((animationState player)!='AinvPknlMstpSlayWrflDnon_medic') && (!FFA_USEACE)};
-	ACT_DragStart=player addAction [localize 'STR_ACT_DragStart','ACT\ACT_Dragstart.sqf',[],53];
-	WaitUntil {sleep 0.2;(nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man'] == player) || ((nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man'] getVariable 'FFA_LIFESTATE') < FFA_LIFESTATE_INJURED) || ((animationState nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man']) == 'AinvPknlMstpSlayWrflDnon_medic') || !(alive nearestObject [[(getposATL player select 0)+1.5*sin(getDir player), (getPosATL player select 1)+1.5*cos(getDir player), 0],'Man']) || !(local player) || !(alive player) || ((vehicle player)!=player) || (FFA_DRAGREQUIRED) || ((animationState player)=='AinvPknlMstpSlayWrflDnon_medic') || (FFA_USEACE)};
-	player removeAction ACT_DragStart;
-};
