@@ -1,5 +1,5 @@
 //Action: Field Repair
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 
 private["_veh","_name","_i","_pack","_dam"];
 

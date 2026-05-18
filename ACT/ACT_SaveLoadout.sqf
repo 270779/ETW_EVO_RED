@@ -1,6 +1,6 @@
 //Action: Save your weapon loadout
 
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 
 private["_weapons","_magazines","_backweapon","_ruckweapons","_ruckmagazines","_hasruck","_ear","_eye","_identity"];
 

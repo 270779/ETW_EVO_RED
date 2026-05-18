@@ -1,7 +1,7 @@
 //Both server and client initialization script
 //don`t modify values of uncommented variables - they are related to mission system
 
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 #include "mission.sqf"
 
 FFA_DELETEBODIESTIMEOUT=180;//timeout of dead units deleting

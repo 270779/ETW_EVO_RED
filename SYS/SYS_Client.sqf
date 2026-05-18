@@ -1,4 +1,4 @@
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 //when player joins the game, perform some tasks
 FFA_FUNC_INITPLAYER=
 {
@@ -26,9 +26,8 @@ FFA_FUNC_INITPLAYER=
 
 	player selectWeapon (primaryWeapon player);
 
-      player addEventHandler ["killed","_this spawn FFA_FUNC_REMOVEPLAYER;[] spawn FFA_FUNC_PLAYERRESPAWN"];
+    player addEventHandler ["killed","_this spawn FFA_FUNC_REMOVEPLAYER;[] spawn FFA_FUNC_PLAYERRESPAWN"];
 	player addEventHandler ["HandleDamage","_this call FFA_FUNC_DAMAGING"];
-	//player addEventHandler ["fired",{_this execVM "PoisonBomb.sqf"}];
 	
 	if ((paramsArray select 7)>0) then
   {

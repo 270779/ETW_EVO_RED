@@ -1,4 +1,4 @@
-	#include "defines.sqf"
+	//#include "defines.sqf" //to be removed along all ACE
 	
 	private["_dir","_py","_px","_i","_x","_y","_town","_marker","_typecount","_typecountaa","_typecountrep","_typecountinf","_Loc1","_Loc2","_Loc3","_Loc4","_count","_cnt","_ingroup","_group","_where","_veh","_vehObs","_location1"];
 

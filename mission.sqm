@@ -58,8 +58,8 @@ class Mission
 	randomSeed=14616012;
 	class Intel
 	{
-		briefingName="EVO RED 3.06N Takistan";
-		briefingDescription="author Winse, changed by MAECTPO";
+		briefingName="EVO RED 3.10N Takistan";
+		briefingDescription="author Winse, changed by MAECTPO, later Nanophage";
 		resistanceEast=1;
 		startWeather=0;
 		forecastWeather=0;

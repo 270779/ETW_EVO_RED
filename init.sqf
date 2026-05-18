@@ -1,4 +1,4 @@
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 
 if (isServer) then
 {	

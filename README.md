@@ -1,5 +1,2 @@
 # GITSandbox
-A repository where I try version control on some stuff
-
-
-Look, I just did an edit!
+This repository is dedicated to working on the EVO RED mission, used frequently on the Entrall's Transylvanian Wolves server.

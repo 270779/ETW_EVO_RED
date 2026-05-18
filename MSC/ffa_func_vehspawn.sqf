@@ -1,6 +1,6 @@
 //Vehicle respawn script. Borrowed from AAS-Series maps and modified
 
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 
 private ["_respawndelay", "_veh", "_startdir", "_startpos", "_typ", "_lastUsedTime", "_abandoned"];
 

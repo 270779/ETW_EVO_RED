@@ -1,6 +1,6 @@
 //Action: Technical service of a vehicle
 
-#include "defines.sqf"
+//#include "defines.sqf" //to be removed along all ACE
 
 private["_veh","_i"];
 
