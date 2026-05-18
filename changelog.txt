@@ -3,7 +3,7 @@ changed all mentions of 3.06 to 3.10
 commented all mentions of defines.sqf as they are ACE related and not used at all
 removed poisonbomb.sqf which had no mentions
 
-17/05/2026
+16/05/2026
 started GitHub repository called https://github.com/270779/GITSandbox
 added all files and folders from EVO Red 3.10N
 added changelog
