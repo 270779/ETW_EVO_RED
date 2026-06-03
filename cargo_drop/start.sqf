@@ -10,28 +10,20 @@
  *                                    '===='             `=`
  *******************************************************************************
  *
- *  Adds the load cargo action to the vehicle.
+ *  This file starts the Drop Cargo Script.
+ *
+ *  To disable the script at all put a // in front of the line.
+ *  
+ *  Example:
+ *  // execVM "BTK\Cargo Drop\init.sqf";
  *
  ******************************************************************************/
 
 
-//// Variables
-_Transporter = _this select 0;
-_Unit = _this select 1;
+//// Wait until player ready, exit if server
+waitUntil {!isNull player};
+if (!local player) exitWith {};
 
 
-
-//// Check for action
-_BTK_CargoDrop_ActionAdded = _Transporter getVariable "BTK_CargoDrop_ActionAdded";
-if (_BTK_CargoDrop_ActionAdded) exitWith {};
-
-
-//// If no action continue here
-_Transporter setVariable ["BTK_CargoDrop_ActionAdded", true];
-_CargoAction = _Transporter addAction [("<t color=""#0000ff"">" + ("Загрузить") + "</t>"),"ca\modules\btk\cargo_drop\engine.sqf",["LoadCargo"], 5, false, false, "", "vehicle _this == player"];
-
-
-//// remove Action
-waitUntil {(!isNil {((_Unit distance _Transporter) > 20)}) || (!isNil {!(alive _Unit)}) || !(alive _Transporter)};
-_Transporter removeAction _CargoAction;
-_Transporter setVariable ["BTK_CargoDrop_ActionAdded", false];
+///// Launch the init once
+execVM "cargo_drop\init.sqf";

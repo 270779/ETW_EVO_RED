@@ -1,4 +1,3 @@
-//#include "defines.sqf" //to be removed along all ACE
 //AI and Players`s "Incomingmissile" eventhandler
 FFA_FUNC_MISSILEDEFENCE=
 {

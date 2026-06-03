@@ -10,7 +10,7 @@ FFA_GAMEENDED=false;
 
 enableSaving [false, false];
 
-FFA_STARTPOINTS=30;//start points
+FFA_STARTPOINTS=999;//start points, changed for TESTING initially 30
 FFA_INCOMETIMEOUT=300;//period of income
 FFA_LASTINCOMETIME=time+FFA_INCOMETIMEOUT;
 

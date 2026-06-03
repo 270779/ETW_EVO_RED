@@ -1,5 +1,3 @@
-	//#include "defines.sqf" //to be removed along all ACE
-	
 	private["_dir","_py","_px","_i","_x","_y","_town","_marker","_typecount","_typecountaa","_typecountrep","_typecountinf","_Loc1","_Loc2","_Loc3","_Loc4","_count","_cnt","_ingroup","_group","_where","_veh","_vehObs","_location1"];
 
 	_town=_this select 0;
@@ -13,11 +11,7 @@
 	_Loc4 = [(_marker select 0),(_marker select 1)-100, 0];
 	_Loc=[_Loc1,_Loc2,_Loc3,_Loc4];
 
-#ifdef __USE_ACE__
 	_count=2+(floor ((playersNumber east)/6));
-#else
-	_count=2+(floor ((playersNumber east)/6));
-#endif
 
 	for [{_cnt=0},{_cnt<_count},{_cnt=_cnt+1}] do
 	{
@@ -35,11 +29,8 @@
 		sleep 0.25;
 	};
 
-#ifdef __USE_ACE__
-	_count=3+(floor ((playersNumber east)/6));
-#else
+
 	_count=8+(floor ((playersNumber east)/4));
-#endif
 	
 	_typecount=(count FFA_ENEMYVEHICLES)-1;
 	for [{_cnt=0},{_cnt<_count},{_cnt=_cnt+1}] do
@@ -639,11 +630,8 @@ _vehObs=createVehicle ["Land_fort_rampart_EP1", [(_veh modelToWorld [0,9,-1]) se
 	sleep 0.2;	
 };
 	//------------------------------------------------------------------------
-#ifdef __USE_ACE__
-	_count=2+(floor ((playersNumber east)/6));
-#else
 	_count=5+(floor ((playersNumber east)/4));
-#endif
+	
     FFA_ENEMYAMMOCHECK=[];
 	_typecount=(count FFA_ENEMYINFANTRY)-1;	
 	_typecountaa=(count FFA_ENEMYAA)-1;	

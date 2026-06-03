@@ -1,4 +1,3 @@
-//#include "defines.sqf" //to be removed along all ACE
 //when new player joins the server
 FFA_FUNC_PLAYERCONNECTED=
 {
@@ -468,10 +467,8 @@ FUNC_CreateVehicle=
 	{
 		_veh setRepairCargo 0;
 	};
-
-#ifndef __USE_ACE__
+	
 	[_veh,true] call FFA_FUNC_HANDLEATGMDEFENCE;
-#endif
 	
 	_crew = getText (configFile >> "CfgVehicles" >> _type >> "crew");		
 
@@ -565,17 +562,9 @@ FFA_FUNC_CALLAIRBORNE=
 	
 	_veh setVelocity[0,500,0];
 	
-#ifdef __USE_ACE__
-	if (!ACE_Countermeasures) then
-	{
-		_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,500] spawn FFA_FUNC_MISSILEDEFENCE}]";
-		processInitCommands;
-	};
-#else
 	_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,500] spawn FFA_FUNC_MISSILEDEFENCE}]";
 	processInitCommands;
-#endif
-	
+
 	_group SetBehaviour "careless";
 	FFA_ENEMYGROUPCHECK=FFA_ENEMYGROUPCHECK+[_group];
 
@@ -734,16 +723,8 @@ FFA_FUNC_REINFORCEAIR=
 	_veh setVariable ["FFA_ANTIAIR",[]];
 	(driver _veh) addEventHandler ["HandleDamage",{private["_AA","_veh","_unit"];_unit=_this select 0;_AA=_this select 3;_projectile=_this select 4;_veh=vehicle _unit;_unit setHit [(_this select 1),(_this select 2)];if ((_veh!=_unit) && (isPlayer _AA)) then {if ((_AA isKindOf "man") && !(_projectile in FFA_ROCKETS)) exitWith{};_Attackers=_veh getVariable "FFA_ANTIAIR";if !(_AA in _Attackers) then {_veh setVariable ["FFA_ANTIAIR",_Attackers+[_this select 3]]};};}];
 
-#ifdef __USE_ACE__
-	if (!ACE_Countermeasures) then
-	{
-		_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,3500] spawn FFA_FUNC_MISSILEDEFENCE}]";
-		processInitCommands;
-	};
-#else
 	_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,3500] spawn FFA_FUNC_MISSILEDEFENCE}]";
 	processInitCommands;
-#endif
 
 	{_veh removeWeapon _x} forEach (weapons _veh);
 	{_veh removeMagazines _x} forEach (magazines _veh);
@@ -808,16 +789,8 @@ FFA_FUNC_REINFORCEHELI=
 	_veh setVariable ["FFA_ANTIAIR",[]];
 	(driver _veh) addEventHandler ["HandleDamage",{private["_AA","_veh","_unit"];_unit=_this select 0;_AA=_this select 3;_projectile=_this select 4;_veh=vehicle _unit;_unit setHit [(_this select 1),(_this select 2)];if ((_veh!=_unit) && (isPlayer _AA)) then {if ((_AA isKindOf "man") && !(_projectile in FFA_ROCKETS)) exitWith{};_Attackers=_veh getVariable "FFA_ANTIAIR";if !(_AA in _Attackers) then {_veh setVariable ["FFA_ANTIAIR",_Attackers+[_this select 3]]};};}];
 
-#ifdef __USE_ACE__
-	if (!ACE_Countermeasures) then
-	{
-		_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,3500] spawn FFA_FUNC_MISSILEDEFENCE}]";
-		processInitCommands;
-	};
-#else
 	_veh setVehicleInit "this addEventHandler [""incomingmissile"",{[_this select 0,_this select 1,_this select 2,3500] spawn FFA_FUNC_MISSILEDEFENCE}]";
 	processInitCommands;
-#endif
 
 	_group selectLeader (driver _veh);
 
@@ -947,11 +920,9 @@ FFA_FUNC_VEHICLEREQUEST=
 		_veh setVehicleInit "[this] execVM ""CamMissle\action_misslecam.sqf""";
 	};
 	processInitCommands;
-
-#ifndef __USE_ACE__
+	
 	[_veh] call FFA_FUNC_HANDLEMISSILEDEFENCE;
 	[_veh,false] call FFA_FUNC_HANDLEATGMDEFENCE;
-#endif
 
 	_veh setVariable ["FFA_OWNER",_name,true];
 	_veh setVariable ["FFA_REPAIRKITS",3,true];

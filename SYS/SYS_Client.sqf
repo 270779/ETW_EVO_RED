@@ -1,4 +1,3 @@
-//#include "defines.sqf" //to be removed along all ACE
 //when player joins the game, perform some tasks
 FFA_FUNC_INITPLAYER=
 {
@@ -50,9 +49,6 @@ FFA_FUNC_INITPLAYER=
 
 	[] call FFA_FUNC_UPDATEARMORY;
 	[] call FFA_FUNC_REFRESHARMORY;
-#ifdef __USE_ACE__
-	[] spawn FFA_FUNC_CHANGELIFESTATE;
-#endif
 
 	if ((paramsArray select 1)>-1) then
 	{
@@ -698,7 +694,7 @@ FFA_FUNC_TRANSFER=
 FFA_FUNC_REFRESHSCORE=
 {
 	while {(dialog)} do
-	{		
+	{
 		ctrlSetText[205,format[localize "STR_GUI_MENU_Score",score player]];
 		ctrlSetText[206,format[localize "STR_GUI_MENU_Score",score player]];
 		sleep 1;
@@ -851,54 +847,12 @@ FFA_FUNC_BEINGFIRSTAIDED=
 	
 	player playMove "AinvPknlMstpSlayWrflDnon_healed2";
 };
-//only in ACE - check ACE injury state, which is a local variable, and assign a global variable to it
-#ifdef __USE_ACE__
-FFA_FUNC_CHANGELIFESTATE=
-{
-	private["_state"];
 
-	_state=player getVariable "ace_w_state";
-
-	while {(true)} do
-	{
-		waitUntil{(player getVariable "ace_w_state")!=_state};
-
-		_state=player getVariable "ace_w_state";
-
-		switch (player getVariable "ace_w_state") do
-		{
-			case 0:
-			{
-				player setVariable["FFA_LIFESTATE",FFA_LIFESTATE_HEALTHY,true];
-			};
-			case 800:
-			{
-				player setVariable["FFA_LIFESTATE",FFA_LIFESTATE_INJURED,true];
-			};
-			case 801:
-			{
-				player setVariable["FFA_LIFESTATE",FFA_LIFESTATE_INJURED,true];
-			};
-			case 802:
-			{
-				player setVariable["FFA_LIFESTATE",FFA_LIFESTATE_DYING,true];
-			};			
-			default
-			{
-				player setVariable["FFA_LIFESTATE",FFA_LIFESTATE_DEAD,true];
-			};
-		};
-	};
-};
-#endif
 //when player respawns or being healed, reset player`s injury state
 FFA_FUNC_RESETLIFESTATE=
 {
 	player setVariable ["FFA_LIFESTATE",FFA_LIFESTATE_HEALTHY,true];
 
-#ifdef __USE_ACE__
-	player setVariable ["ace_w_state",0,false];
-#endif
 	FFA_PLAYERINAGONY=false;
 	FFA_HITBYENEMY=false;
 	FFA_DAMAGEHEAD_HIT=0;
@@ -919,7 +873,6 @@ FFA_FUNC_DAMAGING=
 	_sWeap = secondaryWeapon _unit;
 	_cWeap = currentWeapon _unit;
 
-#ifndef __USE_ACE__
 	if ((((vehicle player)!=player) && (("Parachute" countType [vehicle player])==0)) && (_part=="")) then
 	{
 		[] call compile format["FFA_DAMAGE%1=FFA_DAMAGE%1+%2",_part,_damage*0.05];
@@ -935,7 +888,7 @@ FFA_FUNC_DAMAGING=
 	{
 		FFA_HITBYENEMY=true;
 	};
-#endif
+
 	if ( ( ((side _source)==east) || (isPlayer _source) ) && (_source!=_unit) && ((vehicle _source)!=(vehicle _unit))) then
 	{	
 		_veh=vehicle _source;
@@ -968,7 +921,7 @@ FFA_FUNC_DAMAGING=
 			(leader _source) setVariable["FFA_FRIENDLYFIRE",_unit,true];
 		};
 	};
-#ifndef __USE_ACE__
+
 	if ((_var > 0.05) && ((_unit getVariable "FFA_LIFESTATE") <= FFA_LIFESTATE_HEALTHY)) then
 	{
 		_unit setVariable["FFA_LIFESTATE",FFA_LIFESTATE_INJURED,true];
@@ -1005,7 +958,7 @@ FFA_FUNC_DAMAGING=
 			[_unit] spawn FFA_FUNC_AGONY;
 		};
 	};
-#endif
+
 };
 //apply click at markers setup dialog
 FFA_FUNC_MARKERSAPPLY=
@@ -1078,7 +1031,7 @@ FFA_FUNC_HANDLEMOBILEAMMO=
 
 	_ammo=_this select 0;
 
-	while { (({((alive _x) && !(isNull _x))} count nearestObjects [_ammo,["BTR90_HQ","BMP2_HQ_TK_EP1"],10])>0) && (alive _ammo) } do
+	while { (({((alive _x) && !(isNull _x))} count nearestObjects [_ammo,["BTR90_HQ","BMP2_HQ_TK_EP1"],15])>0) && (alive _ammo) } do
 	{
 		sleep 10;
 	};
@@ -1168,34 +1121,6 @@ FFA_FUNC_PLAYERRESPAWN=
 	player setvariable ["JumpTime",time,false];
 	player setvariable ["MedPack",(paramsArray select 5),false];
 
-#ifdef __USE_ACE__	
-	player setVariable ["ACE_weapononback",FFA_LOADOUT_B];
-
-	if (player call ace_sys_ruck_fnc_hasRuck) then
-	{
-		player setVariable ["ACE_RuckMagContents",FFA_LOADOUT_RM];
-		player setVariable ["ACE_RuckWepContents",FFA_LOADOUT_RW];
-	};
-
-	if (FFA_LOADOUT_EARWEAR) then
-	{
-		player setVariable ["ACE_EarWear",FFA_LOADOUT_EARWEAR,false];	
-		player setVariable ["ACE_Ear_Protection",FFA_LOADOUT_EARPROT,false];
-	};
-	
-	if (FFA_LOADOUT_EYEWEAR) then
-	{		
-		["ace_sys_goggles_setident2", [player, FFA_IDENTITY]] call CBA_fnc_globalEvent;
-
-		_special=(getArray(configFile >> "CfgIdentities" >> FFA_IDENTITY >> "ace_special")) select 0;;
-		player setVariable [_special,true,false];
-		player setVariable ["ACE_Identity",FFA_IDENTITY,false];	
-		player setVariable ["ACE_EyeWear",FFA_LOADOUT_EYEWEAR,false];
-		player setVariable ["ACE_Eye_Protection",FFA_LOADOUT_EYEPROT,false];
-
-		player spawn ace_sys_goggles_fnc_rsc_mask;
-	};
-#endif
 	[] call FFA_FUNC_RESETLIFESTATE;
 	
 	player setCaptive false;

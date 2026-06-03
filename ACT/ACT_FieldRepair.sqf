@@ -1,14 +1,9 @@
 //Action: Field Repair
-//#include "defines.sqf" //to be removed along all ACE
 
 private["_veh","_name","_i","_pack","_dam"];
 
 _veh=_this select 0;
 _pack=_veh getVariable "FFA_REPAIRKITS";
-
-#ifdef __USE_ACE__
-	if (_veh getVariable "ace_onfire") exitWith{hint localize "STR_HINT_ServiceOnFire"};
-#endif
 
 if (format["%1",_pack]=="<null>") then
 {
@@ -43,27 +38,11 @@ if (_pack>0) then
 		{
 			_dam=(getDammage _veh)-0.15;
 			_veh setDamage 0;
-#ifdef __USE_ACE__
-			if ((_veh isKindOf "Tank") || (_veh isKindOf "Wheeled_APC")) then
-			{	
-				["ace_sys_repair_repair_full", [_veh]] call CBA_fnc_globalEvent;
-				["ace_sys_repair_refuel", [_veh, 1]] call CBA_fnc_globalEvent;
-			}
-			else
-			{
-				if ((_veh isKindOf "Air") && (_dam>0.20)) then
-				{
-					_dam=0.20;
-					_veh setFuel (fuel _veh)+0.4;
-				};
-			};
-#else
 			if ((_veh isKindOf "Air") && (_dam>0.20)) then
 			{
 				_dam=0.20;
 				_veh setFuel (fuel _veh)+0.4;
 			};
-#endif
 			_veh setDammage _dam;
 		}
 		else

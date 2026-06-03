@@ -44,11 +44,14 @@ if (!(_SelectedTransporterTypeXL)) exitWith {
 
 	//// BTK_Hint - Not supported
 	hint parseText format ["
-		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'>Транспортировка этого груза невозможна!</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	"];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%1</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'>%2</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+	",
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO2"
+	];
 	
 _Transporter removeAction _Action;
 };
@@ -61,11 +64,14 @@ if ((_Unit in _Transporter) && !(_Selected == "UnloadCargo")) exitWith {
 
 	//// BTK_Hint - You have to get out
 	hint parseText format ["
-		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'>Вы должны выйти из техники перед её загрузкой</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	"];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%1</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'>%2</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+	",
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO3"
+	];
 
 _Transporter removeAction _Action;
 };
@@ -79,13 +85,17 @@ if (_Selected == "UnloadCargo") exitWith {
 
 		//// BTK_Hint - Flying too low
 		hint parseText format ["
-			<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-			<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-			<t align='left' color='#eaeaea' size='1.0'>Вы должны подняться выше 50 метров для сброса груза!</t>
+			<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%1</t></t>
+			<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+			<t align='left' color='#eaeaea' size='1.0'>%2</t>
 			<br />
-			<t align='left' color='#eaeaea' size='1.0'>Or hover below <t color='#fdd785'>2m</t> to unload the cargo!</t>
-			<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		"];
+			<t align='left' color='#eaeaea' size='1.0'>%3</t>
+			<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+			localize "STR_HINT_C130_CARGO",
+			localize "STR_HINT_C130_CARGO4",
+			localize "STR_HINT_C130_CARGO5"
+		];
 	};
 
 	_Transporter removeAction _Action;
@@ -116,11 +126,14 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 	
 		//// BTK_Hint - Nothing to load in range
 		hint parseText format ["
-			<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-			<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-			<t align='left' color='#eaeaea' size='1.0'>Груз находится слишком далеко от рампы</t>
-			<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		"];
+			<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%1</t></t>
+			<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+			<t align='left' color='#eaeaea' size='1.0'>%2</t>
+			<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+			localize "STR_HINT_C130_CARGO",
+			localize "STR_HINT_C130_CARGO6"
+		];
 	};
 	
 	//// Else, select the object from list
@@ -134,11 +147,17 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 
 	//// BTK_Hint - Loading in...
 	hint parseText format ["
-	<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-	<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	<t align='left' color='#eaeaea' size='1.0'>Загрузка <t color='#fdd785'>%1</t> в <t color='#fdd785'>%2</t> ...</t>
-	<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	",_ObjectName,_TransporterName];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%3</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'>%4<t color='#fdd785'>%1</t>%5<t color='#fdd785'>%2</t> ...</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+	",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_LOADING",
+		localize "STR_HINT_C130_CARGO_INTO"
+	];
 
 	//// remove the Action
 	_Transporter removeAction _Action;
@@ -178,14 +197,24 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 
 	//// BTK_Hint - Loaded
 	hint parseText format ["
-	<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-	<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t> загружен.</t>
-	<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-	", _ObjectName,_TransporterName];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%3</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t>%4</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+	",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_LOADED"
+	];
 
 	//// add unload/drop Action
-	_UnloadAction = _Transporter addAction [("<t color=""#0000ff"">" + ("Выгрузить") + "</t>"),"ca\modules\btk\cargo_drop\engine.sqf",["UnloadCargo"], 5];
+	_UnloadAction = _Transporter addAction [
+    format ["<t color='#0000ff'>%1</t>", localize "STR_HINT_C130_CARGO_UNLOAD"],
+    "cargo_drop\engine.sqf",
+    ["UnloadCargo"],
+    5
+	];
 
 	//// Wait until unload
 	waitUntil {(UnloadCargo) || !(alive _Transporter) || !(alive _Object)};
@@ -206,11 +235,17 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 
 		//// BTK_Hint - Unloading...
 		hint parseText format ["
-		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'>Выгрузка <t color='#fdd785'>%1</t> из <t color='#fdd785'>%2</t> ...</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		",_ObjectName,_TransporterName];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%3</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'>%4<t color='#fdd785'>%1</t>%5<t color='#fdd785'>%2</t> ...</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_UNLOADING",
+		localize "STR_HINT_C130_CARGO_FROM"
+		];
 
 		//// Animate ramp
 		sleep 1;
@@ -235,11 +270,16 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 		
 		//// BTK_Hint - Unloaded
 		hint parseText format ["
-		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t> выгружен.</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		",_ObjectName,_TransporterName];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%3</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t>%4</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_UNLOADED"
+		];
 	};
 
 	//// If drop
@@ -247,11 +287,16 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 
 		//// BTK_Hint - Dropping...
 		hint parseText format ["
-		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'>Сброс <t color='#fdd785'>%1</t> ...</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		",_ObjectName,_TransporterName];
+		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>%3</t></t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'>%4<t color='#fdd785'>%1</t> ...</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_DROPPING"
+		];
 
 		//// Reset variables
 		DoUnload = false;
@@ -289,10 +334,15 @@ if ((_Selected == "LoadCargo") && (_SelectedTransporterTypeXL)) exitWith {
 		//// BTK_Hint - Dropped
 		hint parseText format ["
 		<t align='left' color='#e5b348' size='1.2'><t shadow='1'shadowColor='#000000'>Транспортировка</t></t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t> сброшен.</t>
-		<img color='#ffffff' image='ca\modules\btk\cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
-		",_ObjectName,_TransporterName];
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		<t align='left' color='#eaeaea' size='1.0'><t color='#fdd785'>%1</t>%4</t>
+		<img color='#ffffff' image='cargo_drop\images\img_line_ca.paa' align='left' size='0.79' />
+		",
+		_ObjectName,
+		_TransporterName,
+		localize "STR_HINT_C130_CARGO",
+		localize "STR_HINT_C130_CARGO_DROPPED"
+		];
 
 		//// Wait until ground reached
 		waitUntil {(getPos _Object select 2) < 2};

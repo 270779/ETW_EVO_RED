@@ -1,14 +1,8 @@
 //Action: Technical service of a vehicle
 
-//#include "defines.sqf" //to be removed along all ACE
-
 private["_veh","_i"];
 
 _veh=vehicle player;
-
-#ifdef __USE_ACE__
-	if (_veh getVariable "ace_onfire") exitWith{hint localize "STR_HINT_ServiceOnFire"};
-#endif
 
 hint localize "STR_HINT_ServiceProcess";
 
@@ -26,29 +20,12 @@ if ((fuel _veh>=0.91) && (getDammage _veh<=0.09)) then
 {
 	_veh setVariable["FFA_REPAIRKITS",3,true];
 
-#ifdef __USE_ACE__
-	if ((_veh isKindOf "Tank") || (_veh isKindOf "Wheeled_APC")) then
-	{	
-		["ace_sys_repair_repair_full", [_veh]] call CBA_fnc_globalEvent;
-		["ace_sys_repair_refuel", [_veh, 1]] call CBA_fnc_globalEvent;
-	}
-	else
-	{
-		_veh setDammage 0;
-		_veh setFuel 1;
-	};
-	if (_veh isKindOf "air") then
-	{
-		_veh setVariable["ACE_Flares",12,true];
-	};
-#else
 	_veh setDammage 0;
 	_veh setFuel 1;
 	if (_veh isKindOf "air") then
 	{
 		_veh setVariable ["FFA_FLARESLEFT",FFA_DEFAULTFLARES,true];
 	};
-#endif
 		
 	if (_veh isKindOf "air") then
 	{

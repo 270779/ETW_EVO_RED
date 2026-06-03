@@ -1,5 +1,3 @@
-//#include "defines.sqf" //to be removed along all ACE
-
 if (isServer) then
 {	
 
@@ -15,11 +13,8 @@ if (!(local player)) then
 	{
 		[] execVM "SYS\SYS_Common.sqf";
 		[] execVM "INIT\INIT_Common.sqf";
-		#ifdef __USE_ACE__	
-	   [] execVM "INIT\INIT_ArraysACE.sqf";
-    #else
-	   [] execVM "INIT\INIT_Arrays.sqf";
-    #endif
+	    [] execVM "INIT\INIT_Arrays.sqf";
+
 	};
 	onPlayerConnected "[_name,_uid] spawn FFA_FUNC_PLAYERCONNECTED";
 	onPlayerDisconnected "[_name,true,[]] spawn FFA_FUNC_PLAYERDISCONNECTED";
@@ -36,7 +31,7 @@ if(!isServer || local player) then
 	waitUntil{local player};
 	//[] execVM "new_effects\init2.sqf";
 	[] execVM "INIT\INIT_Client.sqf";
-	[] execVM "ca\modules\btk\cargo_drop\start.sqf";
+	[] execVM "cargo_drop\start.sqf";
 };
 if (!(isDedicated)) then 
 {
@@ -56,20 +51,6 @@ EAST setFriend [RESISTANCE, 0];
 RESISTANCE setFriend [EAST, 0];
 RESISTANCE setFriend [WEST, 1];
 WEST setFriend [RESISTANCE, 1];
-#ifdef __USE_ACE__
-	if (isServer) then
-	{
-		ace_sys_wounds_enabled = true;
-		publicVariable "ace_sys_wounds_enabled";
-		ace_sys_aitalk_radio_enabled = true;
-		publicVariable "ace_sys_aitalk_radio_enabled";
-		ace_sys_tracking_markers_enabled_override = true;
-		publicVariable "ace_sys_tracking_markers_enabled_override";
-		ace_sys_tracking_markers_enabled = false;
-		publicVariable "ace_sys_tracking_markers_enabled";
-		
-	};	
-#endif
 
 [] execVM "new_effects\init2.sqf";
 as = [] execVM "time.sqf"

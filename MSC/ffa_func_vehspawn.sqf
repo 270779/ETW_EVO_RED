@@ -1,7 +1,5 @@
 //Vehicle respawn script. Borrowed from AAS-Series maps and modified
 
-//#include "defines.sqf" //to be removed along all ACE
-
 private ["_respawndelay", "_veh", "_startdir", "_startpos", "_typ", "_lastUsedTime", "_abandoned"];
 
 sleep 5;
@@ -20,11 +18,9 @@ if(isServer) then
 
 	_veh setVariable ["FFA_OWNER","",true];
 	_veh setVariable ["FFA_REPAIRKITS",3,true];
-
-#ifndef __USE_ACE__
+	
 	[_veh,false] call FFA_FUNC_HANDLEATGMDEFENCE;
 	[_veh] call FFA_FUNC_HANDLEMISSILEDEFENCE;
-#endif
 	
 	while {true} do
 	{
@@ -80,12 +76,10 @@ if(isServer) then
 			_lastUsedTime = time;
 
 			_veh setVariable ["FFA_OWNER","",true];
-			_veh setVariable ["FFA_REPAIRKITS",3,true];
+			_veh setVariable ["FFA_REPAIRKITS",3,true];	
 			
-#ifndef __USE_ACE__
-	[_veh,false] call FFA_FUNC_HANDLEATGMDEFENCE;
-	[_veh] call FFA_FUNC_HANDLEMISSILEDEFENCE;
-#endif		
+			[_veh,false] call FFA_FUNC_HANDLEATGMDEFENCE;
+			[_veh] call FFA_FUNC_HANDLEMISSILEDEFENCE;
 		};		
 	};		
 };

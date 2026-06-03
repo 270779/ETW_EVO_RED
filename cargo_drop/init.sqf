@@ -17,6 +17,6 @@
 
 //// Add action to all vehicles, check every 5 seconds
 while {true} do {
-	{[_x] execVM "ca\modules\btk\cargo_drop\initAction.sqf";} forEach (nearestObjects [player, ["C130J"], 30]);
+	{[_x] execVM "cargo_drop\initAction.sqf";} forEach (nearestObjects [player, ["C130J"], 30]);
 	sleep 5;
 };

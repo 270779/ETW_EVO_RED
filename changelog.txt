@@ -1,3 +1,10 @@
+03/06/2026
+added localization using localize "var" to the C130 cargo loading script
+
+02/06/2026
+did a lot of shenanigans with ACE, that was already some time back
+changed FFA_FUNC_HANDLEMOBILEAMMO remove distance from 10 to 15 in SYS_Client.sqf
+
 17/05/2026
 changed all mentions of 3.06 to 3.10
 commented all mentions of defines.sqf as they are ACE related and not used at all

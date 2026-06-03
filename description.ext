@@ -1,9 +1,9 @@
 respawn=3;
-respawndelay=15;
+respawndelay=5; // RESPAWN DELAY CHANGED FROM 15 to 5 for testing!
 disabledai=1;
 
 OnLoadMissionTime=true;
-OnLoadMission="EVO RED 3.10N Takistan";
+OnLoadMission="EVO RED 3.12N Takistan";
 
 //defines
 #include "RSC\RscEvoResources.hpp"

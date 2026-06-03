@@ -58,7 +58,7 @@ class Mission
 	randomSeed=14616012;
 	class Intel
 	{
-		briefingName="EVO RED 3.10N Takistan";
+		briefingName="EVO RED 3.12N Takistan";
 		briefingDescription="author Winse, changed by MAECTPO, later Nanophage";
 		resistanceEast=1;
 		startWeather=0;
@@ -5071,7 +5071,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=142;
+		items=141;
 		class Item0
 		{
 			position[]={5657.6709,83.047729,11130.099};
@@ -6052,20 +6052,12 @@ class Mission
 		};
 		class Item138
 		{
-			position[]={3235.0459,50.400551,13881.781};
-			name="server5";
-			text="TechnikPC.net message used to be here";
-			type="mil_flag";
-			colorName="ColorBlack";
-		};
-		class Item139
-		{
 			position[]={3229.6919,32.804756,13568.565};
 			name="server2";
 			text="Destroy the Radio Tower to cut-off reinforcements. Repel a counterattack to prevent the enemy from raising the tower again.";
 			type="mil_flag";
 		};
-		class Item140
+		class Item139
 		{
 			position[]={8260.5625,296.04001,2145.6431};
 			name="FARP3";
@@ -6074,7 +6066,7 @@ class Mission
 			colorName="ColorRed";
 			angle=1.6134448;
 		};
-		class Item141
+		class Item140
 		{
 			position[]={7833.3516,154.71408,8020.1436};
 			name="MKR_Ammo4";
