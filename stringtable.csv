@@ -245,7 +245,7 @@ STR_HINT_UnableToRecruit,"You are not a squad leader so you can not recruit sold
 STR_HINT_PlayerLeftSquad,"You have left your squad!","Вы покинули свой отряд!"
 STR_HINT_UnitLeftSquad,"%1 has left your squad!","%1 покинул ваш отряд!"
 STR_HINT_OnlyAtBase,"You may do this only at base (main or mobile) and FARP`s!","Данное действие можно выполнить только на основной базе, у мобильной базы, и на ПЗП!"
-STR_HINT_OnlyDoNotSpawn,"You can perform not only in spawn","Можно выполнить не в зоне возрождения"
+STR_HINT_OnlyDoNotSpawn,"Can only be performed outside of spawn","Можно выполнить не в зоне возрождения"
 STR_HINT_NotAtRunway,"To buy a vehicle leave the runway!","Для покупки техники отойдите от взлетной полосы"
 STR_HINT_RespawnZone,"To buy a vehicle leave the respawn zone!","Для покупки техники покиньте зону возрождения!"
 STR_HINT_TransferHeader,"Transfer!","Перевод!"

@@ -1,3 +1,6 @@
+12/06/2026
+Added improved_awareness.sqf script for pre-positioned IGLA launchers
+
 03/06/2026
 added localization using localize "var" to the C130 cargo loading script
 

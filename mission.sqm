@@ -1428,7 +1428,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item47
 		{
@@ -1454,7 +1454,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item50
 		{
@@ -1480,7 +1480,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item53
 		{
@@ -4062,7 +4062,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,15] execVM ""MSC\ffa_func_vehspawn.sqf""; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) +2.58]";
+			init="resp=[this,15] execVM ""MSC\ffa_func_vehspawn.sqf""; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) +2.58];  [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item325
 		{
@@ -4988,7 +4988,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item425
 		{
@@ -5014,7 +5014,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item428
 		{
@@ -5040,7 +5040,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Igla_AA_pod_East";
 			skill=0.60000002;
-			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""";
+			init="resp=[this,120] execVM ""MSC\ffa_func_vehspawn.sqf""; [this] execVM ""NPH\improved_awareness.sqf"";";
 		};
 		class Item431
 		{
